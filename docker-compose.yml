@@ -2,10 +2,14 @@ version: "3"
 services:
   3m-editor:
     build: ./services/3m-editor
+    container_name: ${PROJECT_NAME}_3m-editor
+    environment:
+      IP_ADDRESS: "exist-db"
     ports:
       - "8080:8080"
     
   exist-db:
     build: ./services/exist-db
+    container_name: ${PROJECT_NAME}_exist-db
     ports:
       - "8081:8080"
