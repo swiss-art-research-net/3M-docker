@@ -6,7 +6,7 @@ services:
     depends_on:
       - db
     environment:
-      IP_ADDRESS: "db"
+      DB_NAME: "db"
     image: swissartresearx/3m-editor
     ports:
       - "8080:8080"
