@@ -1,8 +1,5 @@
 FROM openjdk:8-jre
 
-ENV CATALINA_HOME /opt/apache-tomcat-8.0.53
-ENV PATH $CATALINA_HOME/bin:$PATH
-
 RUN apt-get update; apt-get -y install ant ant-optional supervisor; apt-get clean 
 
 RUN wget -q -O '/opt/exist.jar' 'https://github.com/eXist-db/exist/releases/download/eXist-2.2/eXist-db-setup-2.2.jar' && \
