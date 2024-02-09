@@ -37,6 +37,7 @@ sed -i s/0.0.0.0:8081/$DB_NAME:8081/g $CATALINA_HOME/webapps/Maze/multmappings.h
 sed -i s/0.0.0.0:8081/$DB_NAME:8081/g $CATALINA_HOME/webapps/Maze/singlemapping.html
 sed -i s/0.0.0.0:8081/$DB_NAME:8081/g $CATALINA_HOME/webapps/Maze/WEB-INF/config.properties
 sed -i s/0.0.0.0:8081/$DB_NAME:8081/g $CATALINA_HOME/webapps/Maze/app/js/Controller.js
+sed -i s/localhost:8081/$DB_NAME:8081/g $CATALINA_HOME/webapps/3MEditor/WEB-INF/web.xml
 
 # start eXist-db and Apache Tomcat
 exec supervisord -n
