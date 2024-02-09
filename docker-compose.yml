@@ -1,0 +1,11 @@
+version: "3"
+services:
+  #3m-editor:
+  #  build: ./services/3m-editor
+  #  ports:
+  #    - "8080:8080"
+    
+  exist-db:
+    build: ./services/exist-db
+    ports:
+      - "8081:8080"
