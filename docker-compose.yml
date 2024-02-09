@@ -6,12 +6,14 @@ services:
     depends_on:
       - db
     environment:
-      IP_ADDRESS: "exist-db"
+      IP_ADDRESS: "db"
+    image: swissartresearx/3m-editor
     ports:
       - "8080:8080"
     
   db:
     build: ./services/exist-db
     container_name: ${PROJECT_NAME}_db
+    image: swissartresearx/3m-exist-db
     ports:
       - "8081:8081"
