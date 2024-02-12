@@ -9,11 +9,11 @@ services:
       DB_NAME: "db"
     image: swissartresearx/3m-editor
     ports:
-      - "8080:8080"
+      - "${PORT_3M}:8080"
     
   db:
     build: ./services/exist-db
     container_name: ${PROJECT_NAME}_db
     image: swissartresearx/3m-exist-db
     ports:
-      - "8081:8081"
+      - "${PORT_DB}:8081"
