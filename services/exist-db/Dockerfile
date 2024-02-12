@@ -17,11 +17,10 @@ RUN sed -i 's/8080/8081/g' /opt/exist/tools/jetty/etc/jetty.xml \
 	&& sed -i 's/8080/8081/g' /opt/exist/backup.properties \
 	&& sed -i 's/8080/8081/g' /opt/exist/index.html
 
-
-VOLUME ["/opt/exist/webapp/WEB-INF/data/","/opt/apache-tomcat-8.0.53/"]
-
 ADD resources/data.tar.gz /opt/exist/webapp/WEB-INF/
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+VOLUME ["/opt/exist/webapp/WEB-INF/data/"]
 
 EXPOSE 8081
 

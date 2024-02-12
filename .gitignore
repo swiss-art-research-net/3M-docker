@@ -1,1 +1,7 @@
 .env
+
+# Folder structure
+data/*
+!data/db/
+data/db/**
+!data/db/.gitkeep
