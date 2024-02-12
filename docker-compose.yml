@@ -10,6 +10,7 @@ services:
     volumes:
       - db-data:/opt/exist/webapp/WEB-INF/data/
       - editor-data:/opt/3m
+      - editor-data:/opt/3M
 
 volumes:
   db-data:
