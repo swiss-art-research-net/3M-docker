@@ -26,11 +26,11 @@ RUN sed -i 's/8080/8081/g' /opt/exist/tools/jetty/etc/jetty.xml \
 	&& sed -i 's/8080/8081/g' /opt/exist/backup.properties \
 	&& sed -i 's/8080/8081/g' /opt/exist/index.html
 
-COPY data/3M /opt/3M
+COPY Resources/3M /opt/3M
 
 RUN chmod -R 0777 /opt/3M
 
-COPY data/exiist /opt/exist/webapp/WEB-INF/data
+ADD Resources/data.tar.gz /opt/exist/webapp/WEB-INF/
 
 ADD Resources/SW/apache-tomcat-8.0.53.tar.gz /opt/
 
