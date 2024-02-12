@@ -2,6 +2,7 @@ version: "3"
 services:
   editor:
     build: .
+    container_name: 3m-docker
     environment:
      IP_ADDRESS: 0.0.0.0
     image: swissartresearx/3m-docker
