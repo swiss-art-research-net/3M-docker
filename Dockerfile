@@ -26,7 +26,7 @@ RUN sed -i 's/8080/8081/g' /opt/exist/tools/jetty/etc/jetty.xml \
 	&& sed -i 's/8080/8081/g' /opt/exist/backup.properties \
 	&& sed -i 's/8080/8081/g' /opt/exist/index.html
 
-COPY Resources/3M /opt/3M
+COPY data/3M /opt/3M
 
 RUN chmod -R 0777 /opt/3M
 
