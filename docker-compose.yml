@@ -3,9 +3,6 @@ services:
   editor:
     build: .
     container_name: 3m-docker
-    environment:
-     IP_ADDRESS: 0.0.0.0
-    image: swissartresearx/3m-docker
     ports:
       - 8080:8080
       - 8081:8081
