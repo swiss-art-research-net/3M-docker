@@ -47,6 +47,7 @@ The repository contains a docker-compose file that can be used to start the 3M c
 ```
 docker-compose up -d
 ```
+To use bind mounts uncomment the respective `COMPOSE_FILE` line in the `.env` file and create and initialise the required directories by running the `createFoldersForBindMounts.sh` script.
 
 ### Maintainers
 
