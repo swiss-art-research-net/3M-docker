@@ -23,26 +23,24 @@ Apart from Java 3M requires the following:
 
 The image creates a running instance of Apache Tomcat, with the required 3M  webapps and resources allready shipped in, so that it can work as the underlying layer of 3M framework. The container starts tomcat container and listens for incoming connection at port 8080. The following environment variables are available for managing the apache tomcat container:
 
-* IP_ADDRESS: allows the user defining the IP address (the external one) where docker is running. This will allow configuring 3M web applications with the proper external IP address they are available into. If the variable is not set when running the container, then the default IP address will be used (localhost)
-
-To start your container using port 8080 (for 3M webapps) and 8081 (for eXistdb) using the external IP address 123.123.123.123: 
+To start your container using port 8080 (for 3M webapps) and 8081 (for eXistdb):
 
 ```
-docker run -d -p 8080:8080 -p 8081:8081 -e IP_ADDRESS=123.123.123.123 marketak/3m-docker:latest
+docker run -d -p 8080:8080 -p 8081:8081 swissartresearx/3m-docker:latest
 ```
 
 After running the container you can check if the instance is up and running by pasting the links below in your web browser
 
 ```
-http://123.123.123.123:8080/3M
-http://123.123.123.123:8081/exist
+http://localhost:8080/3M
+http://localhost:8081/exist
 ```
 
 For maintability reasons, 3M docker image exposes the following volumes which are mounted in the filesystem where the container is running (for more infromation about the actual location of these volumes in the target filesystem use docker inspect command)
 * data from eXist-DB
-* tomcat folder
 * 3M shared resources
 
 ### Maintainers
 
 Yannis Marketakis (marketak 'at' ics 'dot' forth 'dot' gr)
+Florian Kräutli (florian.kraeutli 'at' uzh 'dot' ch)
