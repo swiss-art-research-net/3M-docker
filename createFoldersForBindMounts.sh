@@ -1,3 +1,3 @@
-mkdir -p data/exist
-mkdir -p data/3M
-tar -xzf Resources/data.tar.gz -C data/exist
+mkdir -p binds/exist
+mkdir -p binds/3M
+tar -xzf Resources/data.tar.gz -C binds/exist
