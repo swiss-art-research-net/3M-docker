@@ -42,6 +42,8 @@ ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 RUN chmod +x ./entrypoint.sh 
 
+VOLUME ["/opt/exist/webapp/WEB-INF/data/", "/opt/3M"]
+
 EXPOSE 8080 8081
 
 ENTRYPOINT ["/entrypoint.sh"]

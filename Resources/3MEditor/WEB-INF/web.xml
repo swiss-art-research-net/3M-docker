@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Copyright 2014-2019  Institute of Computer Science,
+Copyright 2014-2017 Institute of Computer Science,
 Foundation for Research and Technology - Hellas
 
 Licensed under the EUPL, Version 1.1 or - as soon they will be approved
@@ -27,12 +27,14 @@ Authors : Georgios Samaritakis, Konstantina Konsolaki.
 This file is part of the 3MEditor webapp of Mapping Memory Manager project.
 
 -->
-<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+<web-app version="3.0"
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
     <display-name>3MEditor</display-name>
     <context-param>
         <description>eXist database URI. Change IP and port according to your eXist setup.</description>
         <param-name>DBURI</param-name>
-        <param-value>xmldb:exist://localhost:8090/exist/xmlrpc</param-value>
+        <param-value>xmldb:exist://localhost:8081/exist/xmlrpc</param-value>
         <!-- Windows setup
         <param-value>xmldb:exist://localhost:8080/exist/xmlrpc</param-value>
         -->
@@ -53,7 +55,7 @@ This file is part of the 3MEditor webapp of Mapping Memory Manager project.
     <context-param>
         <description>eXist database user password. Change according to your eXist setup.</description>
         <param-name>DBpassword</param-name>
-        <param-value>admin</param-value>        
+        <param-value>admin</param-value>
         <!-- Linux setup
         <param-value>admin</param-value>
         -->
@@ -112,7 +114,7 @@ This file is part of the 3MEditor webapp of Mapping Memory Manager project.
     <context-param>
         <description>Server folder to store uploaded files. Change according to your setup.</description>
         <param-name>uploadsFolder</param-name>
-        <param-value>C:\\Projects\\3M\\uploads\\Mapping\\</param-value>
+        <param-value>/opt/3M/uploads/Mapping/</param-value>
         <!--Linux setup
         <param-value>/usr/share/3M/uploads/Mapping/</param-value>
         -->
@@ -120,12 +122,12 @@ This file is part of the 3MEditor webapp of Mapping Memory Manager project.
     <context-param>
         <description>Server folder with mapping schema. Change according to your setup.</description>
         <param-name>schemaFolder</param-name>
-        <param-value>C:\\Projects\\3M\\Schema\\</param-value>
+        <param-value>/opt/3M/Schema/</param-value>
         <!--Linux setup
         <param-value>/usr/share/3M/Schema/</param-value>
         -->
     </context-param>
-   
+
     <context-param>
         <description>Maximum number of xml documents stored in one collection.</description>
         <param-name>maxCollsize</param-name>
@@ -161,7 +163,7 @@ This file is part of the 3MEditor webapp of Mapping Memory Manager project.
     <context-param>
         <description>X3ML engine built in Generator names</description>
         <param-name>generatorNamesBuiltInX3MLEngine</param-name>
-        <param-value>Constant, Literal, prefLabel, UUID, ConcatMultipleTerms, URIorUUID</param-value>
+        <param-value>Constant, Literal, prefLabel, UUID, ConcatMultipleTerms</param-value>
     </context-param>
     <context-param>
         <description>Name used for editor</description>
@@ -321,7 +323,7 @@ This file is part of the 3MEditor webapp of Mapping Memory Manager project.
         <url-pattern>/Services</url-pattern>
     </servlet-mapping>
     <session-config>
-        <session-timeout>30</session-timeout>
+        <session-timeout>180</session-timeout>
     </session-config>
     <error-page>
         <error-code>404</error-code>

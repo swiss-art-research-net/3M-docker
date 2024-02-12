@@ -6,3 +6,10 @@ services:
     ports:
       - 8080:8080
       - 8081:8081
+    volumes:
+      - db-data:/opt/exist/webapp/WEB-INF/data/
+      - editor-data:/opt/3m
+
+volumes:
+  db-data:
+  editor-data:
