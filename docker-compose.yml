@@ -3,6 +3,7 @@ services:
   editor:
     build: .
     container_name: 3m-docker
+    image: swissartresearx/3m-docker:latest
     ports:
       - 8080:8080
       - 8081:8081
