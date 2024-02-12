@@ -12,7 +12,7 @@ ENV PATH $CATALINA_HOME/bin:$PATH
 RUN apt-get update; apt-get -y install ant ant-optional supervisor; apt-get clean 
 
 # First we want to install eXist-DB and configure it to listen on port 8081
-RUN wget -q -O '/opt/exist.jar' 'https://bintray.com/artifact/download/existdb/releases/eXist-db-setup-2.2.jar' && \
+RUN wget -q -O '/opt/exist.jar' 'https://github.com/eXist-db/exist/releases/download/eXist-2.2/eXist-db-setup-2.2.jar' && \
     echo 'INSTALL_PATH=/opt/exist' > '/opt/options.txt' && \
     java -jar '/opt/exist.jar' -options '/opt/options.txt' && \
     rm -f '/opt/exist.jar' '/opt/options' 
