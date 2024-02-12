@@ -40,6 +40,14 @@ For maintability reasons, 3M docker image exposes the following volumes which ar
 * data from eXist-DB
 * 3M shared resources
 
+### Docker Compose
+
+The repository contains a docker-compose file that can be used to start the 3M container. To use the configuration, first create an `.env` file based on the example file `.env.example`, edit as required, and then run the following command:
+
+```
+docker-compose up -d
+```
+
 ### Maintainers
 
 Yannis Marketakis (marketak 'at' ics 'dot' forth 'dot' gr)

@@ -1,3 +1,4 @@
+
 version: "3"
 services:
   editor:
@@ -5,8 +6,8 @@ services:
     container_name: 3m-docker
     image: swissartresearx/3m-docker:latest
     ports:
-      - ${PORT_EDITOR}:8080
-      - ${PORT_DB}:8081
-volumes:
-  db-data:
-  editor-data:
+      - 8080:8080
+      - 8081:8081
+    volumes:
+      - ./data/exist:/opt/exist/webapp/WEB-INF/data/
+      - ./data/3M:/opt/3M
