@@ -37,12 +37,12 @@ ADD Resources/SW/apache-tomcat-8.0.53.tar.gz /opt/
 ADD Resources/WARs/*.tar.gz /opt/apache-tomcat-8.0.53/webapps/
 ADD x3mlMapper /opt/apache-tomcat-8.0.53/webapps/x3mlMapper
 
-VOLUME ["/opt/exist/webapp/WEB-INF/data/","/opt/apache-tomcat-8.0.53/", "/opt/3M/"]
-
 ADD entrypoint.sh /entrypoint.sh
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 RUN chmod +x ./entrypoint.sh 
+
+VOLUME ["/opt/exist/webapp/WEB-INF/data/", "/opt/3M"]
 
 EXPOSE 8080 8081
 
