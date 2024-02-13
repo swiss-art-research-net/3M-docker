@@ -35,7 +35,6 @@ ADD Resources/data.tar.gz /opt/exist/webapp/WEB-INF/
 ADD Resources/SW/apache-tomcat-8.0.53.tar.gz /opt/
 
 ADD Resources/WARs/*.tar.gz /opt/apache-tomcat-8.0.53/webapps/
-ADD x3mlMapper /opt/apache-tomcat-8.0.53/webapps/x3mlMapper
 
 ADD entrypoint.sh /entrypoint.sh
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
