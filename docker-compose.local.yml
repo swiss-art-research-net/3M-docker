@@ -1,0 +1,6 @@
+version: "3"
+services:
+  editor:
+    ports:
+      - ${PORT_EDITOR}:8080
+      - ${PORT_DB}:8081
