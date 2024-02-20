@@ -46,3 +46,5 @@ For maintability reasons, 3M docker image exposes the following volumes which ar
 ### Maintainers
 
 Yannis Marketakis (marketak 'at' ics 'dot' forth 'dot' gr)
+
+Florian Kräutli (florian.kraeutli 'at' uzh 'dot' ch)
