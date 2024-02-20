@@ -1,0 +1,9 @@
+version: "3"
+services:
+  editor:
+    build: .
+    container_name: 3m-docker
+    image: swissartresearx/3m-docker:latest
+volumes:
+  db-data:
+  editor-data:
