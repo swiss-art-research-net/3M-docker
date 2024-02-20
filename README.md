@@ -52,4 +52,5 @@ To use bind mounts uncomment the respective `COMPOSE_FILE` line in the `.env` fi
 ### Maintainers
 
 Yannis Marketakis (marketak 'at' ics 'dot' forth 'dot' gr)
+
 Florian Kräutli (florian.kraeutli 'at' uzh 'dot' ch)

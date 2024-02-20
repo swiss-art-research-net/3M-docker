@@ -1,9 +1,9 @@
 FROM openjdk:8-jre
 
-LABEL image.maintainer="Yannis Marketakis" \
-	image.organization="FORTH-ICS" \
-	image.version="1.5.1" \
-	image.lastupdate="2019-06-25" \
+LABEL image.maintainer="Florian Kräutli" \
+	image.organization="Swiss Art Research Infrastructure" \
+	image.version="2.0.0" \
+	image.lastupdate="2022-02-20" \
 	image.description="Mapping Memory Manager (3M) platform"
 
 ENV CATALINA_HOME /opt/apache-tomcat-8.0.53
@@ -38,6 +38,12 @@ ADD Resources/WARs/*.tar.gz /opt/apache-tomcat-8.0.53/webapps/
 
 ADD entrypoint.sh /entrypoint.sh
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+# Remove the default webapps
+RUN rm -r "${CATALINA_HOME}/webapps/docs" "${CATALINA_HOME}/webapps/examples" "${CATALINA_HOME}/webapps/host-manager" "${CATALINA_HOME}/webapps/manager"
+
+# Redirect root to 3M
+RUN echo '<% response.sendRedirect("/3M"); %>' > "${CATALINA_HOME}/webapps/ROOT/index.jsp"
 
 RUN chmod +x ./entrypoint.sh 
 
