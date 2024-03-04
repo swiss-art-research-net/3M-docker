@@ -1,2 +1,3 @@
 binds/*
 .env
+docker-compose.override.yml
