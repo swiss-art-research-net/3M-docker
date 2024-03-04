@@ -15,6 +15,7 @@ services:
       start_period: 40s
     networks:
       proxy:
+    restart: always
 
 networks:
   proxy:
