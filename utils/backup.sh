@@ -40,12 +40,12 @@ CURRENT_DATE=$(date ${BACKUP_DATE_FORMAT})
 BACKUP_THRESHOLD_DATE=$(date -d "-${BACKUP_DAYS_THRESHOLD} days" ${BACKUP_DATE_FORMAT})
 
 # List all objects in the S3 bucket
-BACKUP_OBJECTS=$(aws s3api list-objects --bucket "${AWS_BUCKET}" --endpoint-url "${AWS_ENDPOINT}" --access-key "${AWS_ACCESS_KEY_ID}" --secret-key "${AWS_SECRET_ACCESS_KEY}" --prefix "${BACKUP_PREFIX}" --query 'Contents[?LastModified<`'"${BACKUP_THRESHOLD_DATE}"'`].Key' --output text)
+BACKUP_OBJECTS=$(aws s3api list-objects --bucket "${AWS_BUCKET}" --endpoint-url "${AWS_ENDPOINT}" --prefix "${BACKUP_PREFIX}" --query 'Contents[?LastModified<`'"${BACKUP_THRESHOLD_DATE}"'`].Key' --output text)
 
 # Delete the backup objects
 if [[ -n "${BACKUP_OBJECTS}" ]]; then
     echo "[I] Deleting backups older than ${BACKUP_DAYS_THRESHOLD} days"
-    aws s3api delete-objects --bucket "${AWS_BUCKET}" --endpoint-url "${AWS_ENDPOINT}" --access-key "${AWS_ACCESS_KEY_ID}" --secret-key "${AWS_SECRET_ACCESS_KEY}" --delete "$(jq -n --arg objects "${BACKUP_OBJECTS}" '{Objects: ($objects | split("\n")[:-1] | map({Key: .}))}')"
+    aws s3api delete-objects --bucket "${AWS_BUCKET}" --endpoint-url "${AWS_ENDPOINT}" --delete "$(jq -n --arg objects "${BACKUP_OBJECTS}" '{Objects: ($objects | split("\n")[:-1] | map({Key: .}))}')"
 else
     echo "[I] No backups found older than ${BACKUP_DAYS_THRESHOLD} days"
 fi
