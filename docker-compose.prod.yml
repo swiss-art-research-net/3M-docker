@@ -6,7 +6,7 @@ services:
       LETSENCRYPT_HOST: ${HOST_NAME}
       VIRTUAL_HOST: ${HOST_NAME}
       VIRTUAL_PORT: 8080
-      CONTENT_SECURITY_POLICY: "default-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://ajax.googleapis.com https://code.jquery.com https://maxcdn.bootstrapcdn.com; img-src 'self' https: data: blob:; connect-src 'self'; style-src-elem 'self' 'unsafe-inline' fonts.googleapis.com maxcdn.bootstrapcdn.com; font-src 'self' fonts.gstatic.com;"
+      CONTENT_SECURITY_POLICY: "default-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://ajax.googleapis.com https://code.jquery.com https://maxcdn.bootstrapcdn.com cdnjs.cloudflare.com; img-src 'self' https: data: blob:; connect-src 'self'; style-src-elem 'self' 'unsafe-inline' fonts.googleapis.com maxcdn.bootstrapcdn.com; font-src 'self' fonts.gstatic.com maxcdn.bootstrapcdn.com;"
     healthcheck:
       test: wget -q http://0.0.0.0:8080 || exit 1
       interval: 1m30s
