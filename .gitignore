@@ -1,3 +1,4 @@
 binds/*
+utils/temp/*
 .env
 docker-compose.override.yml
