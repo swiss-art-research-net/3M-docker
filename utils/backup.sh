@@ -27,7 +27,6 @@ aws s3 cp "${BIND_BACKUP}" "s3://${AWS_BUCKET}" --endpoint-url "${AWS_ENDPOINT}"
 rm "${BIND_BACKUP}"
 
 echo "[I] Finished backup at $(date +%Y-%m-%d_%H-%M)"
-for i in $(seq 1 3); do printf "\n"; done
 
 # Delete backups older than 100 days
 BACKUP_PREFIX="binds_"
