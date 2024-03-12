@@ -9,7 +9,7 @@ set -e
 source "$(dirname "${BASH_SOURCE[0]}")/../.env"
 
 BACKUP_DATE=$(date +%Y-%m-%d_%H-%M)
-BACKUP_BASE_PATH=temp
+BACKUP_BASE_PATH="$(dirname "${BASH_SOURCE[0]}")/temp"
 
 mkdir -p ${BACKUP_BASE_PATH}
 
@@ -27,7 +27,6 @@ rm "${BIND_BACKUP}"
 
 echo "[I] Finished backup at $(date +%Y-%m-%d_%H-%M)"
 for i in $(seq 1 3); do printf "\n"; done
-
 
 # Delete backups older than 100 days
 BACKUP_PREFIX="binds_"
