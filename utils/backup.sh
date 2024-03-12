@@ -3,6 +3,7 @@
 # ! NOTE ! 
 # This script uses the AWS CLI to upload the backups to an S3 bucket.
 # Make sure you have the AWS CLI installed (see https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+# To configure the AWS CLI, run `aws configure` and provide the required information.
 
 set -e
 
@@ -21,7 +22,7 @@ BIND_BACKUP=${BACKUP_BASE_PATH}/binds_${BACKUP_DATE}.tar.gz
 tar -C ${BACKUP_PATH} -czf ${BIND_BACKUP} .
 
 echo "[I] Uploading backup"
-aws s3 cp "${BIND_BACKUP}" "s3://${AWS_BUCKET}" --endpoint-url "${AWS_ENDPOINT}" --access-key "${AWS_ACCESS_KEY_ID}" --secret-key "${AWS_SECRET_ACCESS_KEY}"
+aws s3 cp "${BIND_BACKUP}" "s3://${AWS_BUCKET}" --endpoint-url "${AWS_ENDPOINT}"
 
 rm "${BIND_BACKUP}"
 
