@@ -33,7 +33,7 @@ BACKUP_DATE_FORMAT="+%Y-%m-%d_%H-%M"
 CURRENT_DATE=$(date ${BACKUP_DATE_FORMAT})
 
 # Calculate the date threshold
-BACKUP_THRESHOLD_DATE=$(date -v -${BACKUP_DAYS_THRESHOLD}d ${BACKUP_DATE_FORMAT})
+BACKUP_THRESHOLD_DATE=$(date -d "-${BACKUP_DAYS_THRESHOLD} days" ${BACKUP_DATE_FORMAT})
 
 # List all objects in the S3 bucket
 BACKUP_OBJECTS=$(aws s3api list-objects --bucket "${AWS_BUCKET}" --endpoint-url "${AWS_ENDPOINT}" --prefix "${BACKUP_PREFIX}" --query 'Contents[?LastModified<`'"${BACKUP_THRESHOLD_DATE}"'`].Key' --output text)
