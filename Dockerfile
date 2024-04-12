@@ -36,6 +36,9 @@ ADD Resources/SW/apache-tomcat-8.0.53.tar.gz /opt/
 
 ADD Resources/WARs/*.tar.gz /opt/apache-tomcat-8.0.53/webapps/
 
+# Add label to the RDFVisualizer configuration
+RUN sed -i 's/http:\/\/www.w3.org\/2004\/02\/skos\/core#prefLabel/http:\/\/www.w3.org\/2004\/02\/skos\/core#prefLabel,http:\/\/www.cidoc-crm.org\/cidoc-crm\/P190_has_symbolic_content/g' ${CATALINA_HOME}/webapps/RDFVisualizer/WEB-INF/classes/config.properties
+
 ADD entrypoint.sh /entrypoint.sh
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
