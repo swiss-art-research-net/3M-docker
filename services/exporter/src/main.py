@@ -42,5 +42,12 @@ def readRoot():
 
 @app.get("/mapping/{mapping_id}")
 def get(mapping_id: str):
-    content = api.get(int(mapping_id))
+    try:
+        mapping_id = int(mapping_id)
+    except ValueError:
+        return Response(content="Mapping ID must be an integer", status_code=400)
+    try:
+        content = api.get(mapping_id)
+    except Exception as e:
+        return Response(content=str(e), status_code=500)
     return Response(content=content, media_type="application/xml")

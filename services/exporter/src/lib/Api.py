@@ -16,8 +16,6 @@ class Api:
         self.existdb = db.ExistDB(endpoint, user, password)
 
     def get(self, mapping_id: int):
-        if not isinstance(mapping_id, int):
-            raise ValueError("Mapping ID must be an integer")
         xquery = f"""
         xquery version "3.0";
         doc("/db/DMSCOLLECTION/3M/Mapping/1/Mapping{mapping_id}.xml")
