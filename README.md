@@ -49,6 +49,10 @@ docker-compose up -d
 ```
 To use bind mounts uncomment the respective `COMPOSE_FILE` line in the `.env` file and create and initialise the required directories by running the `createFoldersForBindMounts.sh` script.
 
+### Exporter
+
+The configuration includes an interface for exporting mapping files from the 3M container. To use the exporter, include the `docker-compose.exporter.yml` in the `COMPOSE_FILE` variable in the `.env` file and specify the `EXPORTER_HOST_NAME` variables.
+
 ### Maintainers
 
 Yannis Marketakis (marketak 'at' ics 'dot' forth 'dot' gr)
