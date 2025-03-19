@@ -9,7 +9,7 @@ RUN locale-gen en_US.UTF-8
 # Install Python packages
 RUN pip install fastapi "uvicorn[standard]" lxml pyexistdb
 
-RUN mkdir /src
+ADD src /src
 WORKDIR /src
 
 EXPOSE 8080
