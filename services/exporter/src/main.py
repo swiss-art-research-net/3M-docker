@@ -1,7 +1,8 @@
 """
+Export service for 3M Mapping data
 
+To run the application, use a command like 'uvicorn main:app'.
 """
-
 import os
 from fastapi import FastAPI
 from fastapi.responses import Response, HTMLResponse
@@ -21,7 +22,7 @@ app.add_middleware(
 )
 
 # Inititialise parameters
-DB_ENDPOINT = "http://editor:8081"
+DB_ENDPOINT = "http://editor:8081/exist"
 
 api = Api(DB_ENDPOINT)
 
@@ -35,11 +36,11 @@ def readRoot():
         <body>
             <h1>3M Mapping Exporter Service</h1>
             <p>Use the following URL to retrieve a data export:</p>
-            <pre>/export/{mapping_id}</pre>
+            <pre>/mapping/{mapping_id}</pre>
         </body>
     </html>"""
 
-@app.get("/export/{mapping_id}")
+@app.get("/mapping/{mapping_id}")
 def get(mapping_id: str):
-    content = api.get(mapping_id)
+    content = api.get(int(mapping_id))
     return Response(content=content, media_type="application/xml")

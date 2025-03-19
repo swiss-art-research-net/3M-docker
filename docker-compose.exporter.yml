@@ -1,11 +1,13 @@
-version: "3"
 services:
   exporter:
     build: services/exporter/.
     container_name: 3m-exporter
-    entrypoint: uvicorn main:app --reload --host 0.0.0.0 --port 8080
-    ports:
-      - 8082:8080
+    environment:
+      LETSENCRYPT_EMAIL: ${LETSENCRYPT_EMAIL}
+      LETSENCRYPT_HOST: ${EXPORTER_HOST_NAME}
+      VIRTUAL_HOST: ${EXPORTER_HOST_NAME}
+      VIRTUAL_PORT: 8080
+      
     volumes:
       - ./services/exporter/src:/src
     
