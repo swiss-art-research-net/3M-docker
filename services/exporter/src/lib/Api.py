@@ -32,6 +32,11 @@ class Api:
         namespaces = root.find("namespaces")
         mappings = root.find("mappings")
 
+        # Add the namespaces in the target
+        namespacesTarget = root.find(".//target/target_info/namespaces")
+        if namespacesTarget is not None:
+            namespaces.extend(namespacesTarget)
+
         # Create a new root element
         newRoot = etree.Element("x3ml")
 
