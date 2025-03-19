@@ -2,3 +2,4 @@ binds/*
 utils/temp/*
 .env
 docker-compose.override.yml
+__pycache__
