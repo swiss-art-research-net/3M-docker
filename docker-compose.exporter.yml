@@ -9,6 +9,7 @@ services:
       VIRTUAL_PORT: 8080
     networks:
       proxy:
+    restart: always
       
     volumes:
       - ./services/exporter/src:/src
