@@ -9,6 +9,11 @@ services:
       VIRTUAL_PORT: 8080
     networks:
       proxy:
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
     restart: always
       
     volumes:

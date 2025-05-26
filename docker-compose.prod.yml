@@ -12,6 +12,11 @@ services:
       timeout: 30s
       retries: 2
       start_period: 40s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
     networks:
       proxy:
     restart: always
